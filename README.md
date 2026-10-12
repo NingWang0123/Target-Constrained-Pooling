@@ -11,17 +11,9 @@ base-model training, study datasets, and paper results are not included.
 
 ## TCP workflow
 
-```mermaid
-flowchart TD
-    A["Permitted out-of-fold curves"] --> B["Select calibration C, then sources D"]
-    B --> C["Estimate and project uniform/matched endpoints"]
-    P["Observed prefixes"] --> C
-    C --> D["Build two endpoint-corrected branches"]
-    Q["Saved free forecasts"] --> D
-    D --> E["Calibrate strengths and mixture"]
-    T["C continuations only"] --> E
-    E --> F["Freeze policy; predict evaluation futures"]
-```
+![TCP workflow.](docs/figures/fig1_mechanism.png)
+
+*TCP workflow.* [Original figure (PDF)](docs/figures/fig1_mechanism.pdf).
 
 Use `select_pools` to choose C and D, `estimate_endpoints` and `common_branch`
 to construct the two corrections, then `calibrate` to fit a reusable `Policy`.
